@@ -14,11 +14,16 @@
 		let areal = length * width;
 
 
-		let resultat = `Arealet er ${areal}. Har du brug for et nyt areal?`;
+		/*let resultat = `Arealet er ${areal}. Har du brug for et nyt areal?`;
 
 		confirm(resultat);
 
 		if (confirm) {
+			location.reload();
+
+		}*/
+
+		if (confirm(`Arealet er ${areal}. Har du brug for et nyt areal?`)) {
 			location.reload();
 
 		}
