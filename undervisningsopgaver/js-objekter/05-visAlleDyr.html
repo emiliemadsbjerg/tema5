@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+</head>
+
+
+
+<body>
+
+	<div id="liste">
+
+	</div>
+
+	<script>
+		let dyr = [
+
+			{
+				"navn": "Gris",
+				"type": "Pattedyr",
+				"billede": "http://helf-kea.dk/test/gris.png",
+				"levested": "Svinefarm"
+			}, {
+				"navn": "Frø",
+				"type": "Amfibie",
+				"billede": "http://helf-kea.dk/test/frø.png",
+				"levested": "Søer"
+			}, {
+				"navn": "Ræv",
+				"type": "Pattedyr",
+				"billede": "http://helf-kea.dk/test/fox.png",
+				"levested": "Skove"
+			}, {
+				"navn": "Sild",
+				"type": "Fisk",
+				"billede": "http://helf-kea.dk/test/sild.jpg",
+				"levested": "Havet"
+			}, {
+				"navn": "Krokodille",
+				"type": "Krybdyr",
+				"billede": "http://helf-kea.dk/test/kroko.jpg",
+				"levested": "Sumpe"
+			}
+		];
+
+		document.addEventListener("DOMContentLoaded", start);
+
+		function start() {
+			let dest = document.querySelector("#liste");
+			dyr.forEach(dyr => {
+				dest.innerHTML += `${dyr.navn} ${dyr.type} ${dyr.levested} <br>`;
+
+
+			})
+
+		}
+		console.log(dyr);
+	</script>
+
+</body>
+
+</html>
