@@ -15,48 +15,68 @@
 
 	<style>
 		.person {
-			border: solid black;
+			height: 40vw;
+			width: 30vw;
+			border: 2px solid black;
+			padding: 10px;
 			margin: 10px;
+			background: #ce9dbb;
+
+
 
 		}
 
 		#liste {
 			display: grid;
-			grid-template-columns: 1fr 1fr 1fr 1fr;
+			grid-template-columns: 1fr 1fr 1fr;
+			text-align: center;
+		}
+
+		img {
+			height: 20vw;
+
 		}
 	</style>
 
 	<script>
 		let personer = [];
+
 		document.addEventListener("DOMContentLoaded", start);
 
 		function start() {
 			let dest = document.querySelector("#liste");
 
+
 			async function getJson() {
-				let jsonData = await fetch("personer.json");
+				let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1OLlD_GRoz71piHvnW306omRAyHS7vtLOILQt-K0YF_c");
 				personer = await jsonData.json();
 				visPersoner();
 			}
 
 			function visPersoner() {
-				alert("hi")
+				alert("Her får du en liste over personer på MMD")
 				personer.forEach(person => {
-					dest.innerHTML += `<div class="person>
-<h3>${person.navn} </h3>
+
+
+					dest.innerHTML += `
+<div class="person">
+<h2>${person.navn} </h2>
 <p>Github: ${person.github}</p>
 <img src = "${person.billede}">
 <p>Email: ${person.email}</p>
 <p>Alder: ${person.alder}</p>
 <p>Køn: ${person.køn}</p>
 <p>Hold: ${person.hold}</p>
-	</div>`;
+</div>`;
+
 
 
 				})
 			}
 
-			getJson()
+
+			getJson();
+
 		}
 	</script>
 </body>
