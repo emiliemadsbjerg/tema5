@@ -40,12 +40,12 @@
 
 			async function getJson() {
 				let jsonData = await fetch("dyr.json");
-				personer = await jsonData.json();
-				visPersoner();
+				dyr = await jsonData.json();
+				visDyr();
 			}
 
 			function visDyr() {
-				alert("hi")
+				alert("hejsa")
 				dyr.forEach(dyr => {
 
 
@@ -59,7 +59,7 @@
 				})
 			}
 
-			visDyr();
+			getJson();
 
 		}
 	</script>
