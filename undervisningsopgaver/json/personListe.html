@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>json-øvelse</title>
+</head>
+
+<body>
+
+	<div id="liste">
+
+	</div>
+
+	<style>
+		.person {
+			border: solid black;
+			margin: 10px;
+
+		}
+
+		#liste {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+		}
+	</style>
+
+	<script>
+		let personer = [];
+		document.addEventListener("DOMContentLoaded", start);
+
+		function start() {
+			let dest = document.querySelector("#liste");
+
+			async function getJson() {
+				let jsonData = await fetch("personer.json");
+				personer = await jsonData.json();
+				visPersoner();
+			}
+
+			function visPersoner() {
+				alert("hi")
+				personer.forEach(person => {
+					dest.innerHTML += `<div class="person>
+<h3>${person.navn} </h3>
+<p>Github: ${person.github}</p>
+<img src = "${person.billede}">
+<p>Email: ${person.email}</p>
+<p>Alder: ${person.alder}</p>
+<p>Køn: ${person.køn}</p>
+<p>Hold: ${person.hold}</p>
+	</div>`;
+
+
+				})
+			}
+
+			getJson()
+		}
+	</script>
+</body>
+
+</html>
